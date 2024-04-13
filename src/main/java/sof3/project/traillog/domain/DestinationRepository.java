@@ -9,5 +9,6 @@ public interface DestinationRepository extends CrudRepository<Destination, Long>
     List<Destination> findByDestName(String destName);
     //hae kohteen arviolla/tähtiluokituksella
     List<Destination> findByDestRating(Double destRating);
+    List<Destination> findAll();
 
 }
