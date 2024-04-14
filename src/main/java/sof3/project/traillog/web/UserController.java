@@ -1,6 +1,7 @@
 package sof3.project.traillog.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,10 @@ import sof3.project.traillog.domain.UserRepository;
 
 @Controller
 public class UserController {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
     private UserRepository userRepository;
 
@@ -18,17 +23,20 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    //rekisteröi eli lisää uusi käyttäjä
-    @RequestMapping(value ="/register", method = RequestMethod.GET)
+    // rekisteröi eli lisää uusi käyttäjä
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String registerUser(Model model) {
         model.addAttribute("user", new User());
-        return "register"; //register.html
+        return "register"; // register.html
     }
-    //tallenna uusi käyttäjä
+
+    // tallenna uusi käyttäjä
     @RequestMapping(value = "/saveuser", method = RequestMethod.POST)
     public String saveUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole("USER");
         userRepository.save(user);
         return "redirect:/login";
     }
 
-    }
+}

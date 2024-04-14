@@ -16,6 +16,11 @@ import sof3.project.traillog.service.UserDetailsServiceImpl;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     private final UserDetailsServiceImpl userDetailsService;
 
     public SecurityConfig(UserDetailsServiceImpl userDetailsService) {
@@ -24,11 +29,6 @@ public class SecurityConfig {
 
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 
     @Bean
@@ -44,7 +44,7 @@ public class SecurityConfig {
                         .frameOptions(frameoptions -> frameoptions
                                 .disable()))
                 .formLogin(formlogin -> formlogin
-                        //.loginPage("/login").permitAll()
+                        // .loginPage("/login").permitAll()
                         .defaultSuccessUrl("/destinations", true).permitAll())
                 .logout(logout -> logout
                         .permitAll());
