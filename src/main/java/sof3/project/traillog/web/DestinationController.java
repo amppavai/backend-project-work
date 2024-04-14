@@ -7,15 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import sof3.project.traillog.domain.DestinationRepository;
-//import sof3.project.traillog.domain.UserRepository;
 
 @Controller
 public class DestinationController {
 
     @Autowired
     private DestinationRepository destinationRepository;
-/*     @Autowired
-    private UserRepository userRepository; */
 
     // etusivu index.html
     @RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -23,7 +20,7 @@ public class DestinationController {
         return "index.html";
     }
 
-    // kohteiden listaus Explore-buttonista
+    // kohteiden listaus
     @RequestMapping(value = "/destinations", method = RequestMethod.GET)
     public String getDestinations(Model model) {
         model.addAttribute("destinations", destinationRepository.findAll());

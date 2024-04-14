@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400');
+
 body {
   background: #2D3142;
   font-family: 'Raleway', sans-serif;
 }
- th, td {
-    color: #BFC0C0;
- }
+
+th,
+td {
+  color: #BFC0C0;
+}
 
 /* Heading */
 
@@ -19,12 +22,22 @@ h1 {
 }
 
 h3 {
-    font-size: 1.2em;
-    text-align: center;
-    padding: 20px 0 0 0;
-    color: #ef9d7a;
-    font-weight: 300;
-    letter-spacing: 1px;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 20px 0 0 0;
+  color: #ef9d7a;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1em;
+  text-align: center;
+  padding: 20px 0 0 0;
+  color: #BFC0C0;
+  font-weight: 300;
+  letter-spacing: 1px;
+
 }
 
 span {
@@ -47,9 +60,15 @@ span {
 }
 
 table {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
+  margin-left: auto;
+  margin-right: auto;
+}
+
+lable {
+  color: #EF8354;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
 
 /* Button Styles */
 
@@ -70,12 +89,16 @@ table {
 }
 
 a {
-  color: #BFC0C0;
+  color: #e8f0ee;
   text-decoration: none;
   letter-spacing: 1px;
 }
 
-/* Third Button */
+.register{
+  color: #EF8354;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
 
 #button-3 {
   position: relative;
@@ -118,6 +141,7 @@ a {
   h1 {
     font-size: 2.2em;
   }
+
   #container {
     width: 50%;
   }

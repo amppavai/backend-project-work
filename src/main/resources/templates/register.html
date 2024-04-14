@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TravelLog - Register</title>
+    <link rel="stylesheet" href="oma.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Register here</h3>
+        <form th:object="${user}" th:action="@{/saveuser}" method="post">
+            <label for="username" color="EF8354">Username: </label>
+            <input type="text" id="username" name="username" th:field="*{username}" />
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password" th:field="*{password}" />
+            <input type="submit" class="button" id="button-3" value="Register" />
+        </form>
+    </div>
+</body>
+
+</html>
