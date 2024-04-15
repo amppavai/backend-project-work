@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TravelLog - Register</title>
+    <link rel="stylesheet" href="oma.css">
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <h3>Add new destination</h3>
+            <form th:object="${destination}" th:action="@{/savedestination}" method="post">
+                <div class="form-group">
+                    <label for="destName">
+                        <p>Destination name: </p>
+                    </label>
+                    <input type="text" id="destName" name="destName" th:field="*{destName}" placeholder="required"
+                        required>
+                    <label for="destDescription" color="ef9d7a">
+                        <p>Destination description: </p>
+                    </label>
+                    <input type="text" id="destDescription" name="destDescription" th:field="*{destDescription}">
+                    <label for="destRating">
+                        <p>Destination Rating: </p>
+                    </label>
+                    <input type="text" id="destRating" name="destRating" th:field="*{destRating}">
+                    <input type="submit" class="button" id="button-3" value="Add Destination" />
+                </div>
+            </form>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -23,6 +23,12 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
+    //sisäänkirjautuminen
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public String login() {
+        return "profile"; // profile.html
+    }
+
     // rekisteröi eli lisää uusi käyttäjä
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String registerUser(Model model) {

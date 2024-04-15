@@ -39,7 +39,10 @@ public class Destination {
     }
 
     public Destination() {
+    }
 
+    public Destination(String destName) {
+        this.destName = destName;
     }
 
     public Destination(String destName, String destDescription, Double destRating) {

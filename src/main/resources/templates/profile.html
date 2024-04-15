@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>TravelLog - Register</title>
+    <link rel="stylesheet" href="oma.css">
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <h3>Welcome to your TrailLog profile!</h3>
+            <p>Here you can add your recent travel destinations</p>
+            <form th:object="${destination}" th:action="@{/savedestination}" method="post">
+                <div class="button" id="button-3">
+                    <div id="circle"></div>
+                    <a th:href="@{/adddest}">Add Destination</a>
+                </div>
+            </form>
+            <form action="/logout" method="post" class="logout-form">
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+                <button type="submit" class="button" id="button-logout">Log out</button>
+            </form>
+            <p>All Destinations:</p>
+            <div class="button" id="button-3">
+                <div id="circle"></div>
+                <a th:href="@{/destinations}">Explore</a>
+            </div>
+        </table>
+    </div>
+</body>
+
+</html>

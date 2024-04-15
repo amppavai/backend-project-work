@@ -36,16 +36,17 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(toH2Console()).permitAll()
-                        .requestMatchers("/", "/index").permitAll()
+                        .requestMatchers("/", "/index", "/register").permitAll()
                         .anyRequest().authenticated())
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers(toH2Console()))
                 .headers(headers -> headers
                         .frameOptions(frameoptions -> frameoptions
-                                .disable()))
+                                .disable())
+                .contentTypeOptions(options -> options.disable()))
                 .formLogin(formlogin -> formlogin
-                        // .loginPage("/login").permitAll()
-                        .defaultSuccessUrl("/destinations", true).permitAll())
+                        //.loginPage("/login").permitAll()
+                        .defaultSuccessUrl("/profile", true).permitAll())
                 .logout(logout -> logout
                         .permitAll());
         return http.build();
